@@ -1,0 +1,10 @@
+<button (click)="addVideo()">Add Video</button>
+<span class="grid">
+  <video-list 
+    [videos]="videos | async" 
+    [selectedVideo]="selectedVideo | async" 
+    (videoSelected)="selectVideo($event)"></video-list>
+  <embedded-video [videoId]="(selectedVideo | async)?.id"></embedded-video>
+  <view-filter (filterChanged)="setFilter($event)"></view-filter>
+  <view-breakdown [views]="filteredViews | async" ></view-breakdown>
+</span>

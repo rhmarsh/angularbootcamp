@@ -1,0 +1,16 @@
+<form [formGroup]="filterForm">
+  <div *ngFor="let region of regions">
+    <input type="radio" value="{{region}}" formControlName="region">{{region}}
+  </div>
+  <div>
+    <input type="date" formControlName="minDate"> Min Date
+    <input type="date" formControlName="maxDate"> Max Date
+  </div>
+  <div *ngFor="let age of ages">
+    <input type="checkbox" formControlName="{{age.name}}">{{age.value}}
+  </div>
+</form>
+
+<pre>
+  {{filterForm.value | json}}
+</pre>
