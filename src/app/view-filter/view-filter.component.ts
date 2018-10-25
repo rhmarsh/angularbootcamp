@@ -9,7 +9,7 @@ import { tap } from 'rxjs/operators'
   templateUrl: './view-filter.component.html',
   styleUrls: ['./view-filter.component.css']
 })
-export class ViewFilterComponent implements OnInit {
+export class ViewFilterComponent {
   filterForm: FormGroup;
   @Output() filterChanged: Observable<Filter>;
   regions = ["North America", "Europe", "Asia", "All"];
@@ -25,10 +25,6 @@ export class ViewFilterComponent implements OnInit {
       middleAges: [true],
       seniors: [true]
     });
-    this.filterChanged = this.filterForm.valueChanges.pipe(tap(change => console.log(change)));;
+    this.filterChanged = this.filterForm.valueChanges;
    }
-
-  ngOnInit() {
-  }
-
 }
